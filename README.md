@@ -9,6 +9,8 @@
 
 ## 界面预览
 
+平台默认采用 **天青白** 浅色主题，界面清爽、数据卡片与表格层次分明。截图已统一使用该主题并放在 `docs/images/` 目录下，可直接用于 README 与项目文档。
+
 登录页：
 
 ![登录页](docs/images/01-login.png)
@@ -30,6 +32,20 @@ FRP 报表中心与流量报表：
 ![FRP 报表](docs/images/06-frp-reports.png)
 
 ![流量报表](docs/images/07-frp-traffic.png)
+
+用户管理：
+
+![用户管理](docs/images/08-user-management.png)
+
+平台管理（平台设置）：
+
+![平台设置](docs/images/09-platform-settings.png)
+
+日志管理（用户日志与系统日志）：
+
+![用户日志](docs/images/10-user-logs.png)
+
+![系统日志](docs/images/11-system-logs.png)
 
 ---
 
@@ -119,9 +135,50 @@ frpsys/
 
 ---
 
-## 三、快速开始
+## 三、功能模块
 
-### 3.1 启动后端
+平台左侧菜单分为 **用户管理、平台管理、日志管理、FRP 管理** 四大板块，权限均通过「权限策略」细粒度控制。
+
+### 3.1 用户管理
+
+- **用户管理**：维护平台账号、角色与所属部门，支持启用 / 禁用、重置密码、OTP 二次验证绑定；密码策略（长度、复杂度、有效期）由平台统一配置并生效。
+- **部门管理**：维护组织架构与层级关系，支持部门成员归属调整；兼容「组织管理」与「部门管理」两种视图。
+- **权限策略**：基于 RBAC 的权限策略与规则管理，可按页面、操作（增删改查、导出、审核等）为不同角色授权，支持策略克隆与批量调整。
+- **用户报表**：按部门、时间维度统计用户登录与操作情况，支持报表生成与导出。
+
+![用户管理](docs/images/08-user-management.png)
+
+### 3.2 平台管理
+
+- **平台设置**：平台名称、Logo、备案信息、访问白名单、密码策略、登录策略（验证码 / 滑块 / OTP）、LLM 配置、通知渠道、水印、License 等一站式配置。
+- **系统状态**：展示后端运行状态、资源占用、服务健康度等关键指标。
+- **平台工具**：内置 Ping、Telnet、Curl、Traceroute、MTR 等常用网络运维探测工具，便于排查 FRP 链路连通性。
+- **菜单顺序**：管理员可拖拽调整个人或系统默认的左侧菜单展示顺序。
+
+![平台设置](docs/images/09-platform-settings.png)
+
+### 3.3 日志管理
+
+- **用户日志**：集中记录用户登录、登出行为，包含登录方式、IP、时间、成功 / 失败状态及失败原因；支持按时间范围检索与导出。
+- **系统日志**：记录平台关键操作审计，如 FRP 服务端 / 客户端 / 隧道的增删改、权限变更、系统设置变更等，满足运维可追溯要求。
+
+![用户日志](docs/images/10-user-logs.png)
+
+![系统日志](docs/images/11-system-logs.png)
+
+### 3.4 FRP 管理（核心）
+
+- **FRP 服务端**：纳管多个 frps 服务端，维护地址、端口、Token、Dashboard 等配置，支持连通测试与客户端同步。
+- **frpc 客户端**：管理 frpc 客户端注册、审核、启用 / 禁用，支持管理接口测试与隧道同步。
+- **FRP 隧道**：维护 TCP / UDP / HTTP / HTTPS 等隧道配置，支持连通测试、启用 / 禁用。
+- **FRP 审计**：记录隧道创建、变更、访问等关键操作。
+- **FRP 报表 / 流量报表**：从 frps Dashboard 同步流量，展示今日 / 累计流量、入站 / 出站统计，支持明细查看与排序。
+
+---
+
+## 四、快速开始
+
+### 4.1 启动后端
 
 ```bash
 cd backend
@@ -144,7 +201,21 @@ python manage.py seed_demo
 python manage.py runserver 0.0.0.0:8001
 ```
 
-### 3.2 启动前端
+### 4.2 启动前端
+
+> **部署注意事项**：前端开发服务器通过 `front/vite.config.ts` 中的 `server.proxy['/api'].target` 把 `/api` 请求代理到后端。**此地址必须与你实际启动 Python 后端的地址一致**，否则前端页面会报接口连接失败。
+>
+> 当前默认配置为 `http://192.168.1.12:8001`。若你在本机启动后端，请改为 `http://127.0.0.1:8001`；若后端部署在其他服务器，请改为对应 IP 与端口。
+>
+> ```ts
+> // front/vite.config.ts
+> proxy: {
+>   '/api': {
+>     target: 'http://127.0.0.1:8001', // 与 python manage.py runserver 的地址保持一致
+>     changeOrigin: true,
+>   },
+> },
+> ```
 
 ```bash
 cd front
@@ -156,17 +227,27 @@ npm install
 npm run dev
 ```
 
-### 3.3 生产构建
+### 4.3 生产构建
 
 ```bash
 cd front
 npm run build      # 依次执行资源审计、文档审计、类型检查，产物输出到 front/dist
 ```
 
-后端 `settings.py` 中的 `FRONT_DIST_DIR` 指向 `front/dist`，
-关闭 `DEBUG` 后可由 Django 直接托管；也可用 Nginx 托管 `front/dist` 并将 `/api` 反向代理到后端端口。
+生产部署时，请确保前端能正确访问到后端 API：
 
-### 3.4 登录
+- 若使用 Django 托管：`backend/settings.py` 中的 `FRONT_DIST_DIR` 指向 `front/dist`，关闭 `DEBUG` 后 Django 会直接托管静态文件并代理 API。
+- 若使用 Nginx 托管：将 `front/dist` 作为站点根目录，并把 `/api` 反向代理到后端实际地址（例如 `http://127.0.0.1:8001`）。
+
+> 生产构建产物中不会再读取 `vite.config.ts` 的代理配置，因此 Nginx 或部署环境的反向代理地址务必与后端监听地址保持一致。
+
+### 4.4 登录
 
 浏览器打开 http://127.0.0.1:5173，使用 `admin` / `admin123` 登录。
 登录页默认启用图形验证码与滑块验证；OTP 二次验证、短信登录可在「系统设置 → 平台安全」中开关。
+
+---
+
+## 五、开源协议
+
+本项目基于 [Apache License 2.0](LICENSE) 开源，欢迎 Star、Issue 与 Pull Request。
