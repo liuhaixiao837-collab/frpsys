@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="平台 Logo">
+  <defs>
+    <linearGradient id="brand-gradient" x1="12" y1="10" x2="116" y2="118" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2563eb" />
+      <stop offset="1" stop-color="#7c3aed" />
+    </linearGradient>
+    <linearGradient id="gauge-gradient" x1="31" y1="42" x2="99" y2="87" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#dbeafe" />
+      <stop offset="1" stop-color="#ffffff" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#brand-gradient)" />
+  <path d="M28 70a38 38 0 0 1 72 0" fill="none" stroke="#67e8f9" stroke-linecap="round" stroke-width="8" opacity=".58" />
+  <path d="M36 72a30 30 0 0 1 56 0" fill="none" stroke="url(#gauge-gradient)" stroke-linecap="round" stroke-width="10" />
+  <path d="M64 56v8M43 78h-8M93 78h-8" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="7" />
+  <path d="m64 79 22-22" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="9" />
+  <circle cx="64" cy="79" r="11" fill="#ffffff" />
+</svg>

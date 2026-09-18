@@ -1,0 +1,90 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const language_core_1 = require("@volar/language-core");
+const muggle_string_1 = require("muggle-string");
+const buildMappings_1 = require("../utils/buildMappings");
+const parseSfc_1 = require("../utils/parseSfc");
+const frontmatterReg = /^---[\s\S]*?\n---(?:\r?\n|$)/;
+const codeblockReg = /(`{3}|\${2})[\s\S]+?\1/g;
+const codeSnippetImportReg = /^\s*<<<\s*.+/gm;
+const sfcBlockReg = /<(script|style)\b[^>]*>([\s\S]*?)<\/\1>/g;
+const htmlTagReg = /(?<=<\/?)([a-z][a-z0-9-]*)\b[^>]*(?=>)/gi;
+const interpolationReg = /(?<=\{\{)[\s\S]*?(?=\}\})/g;
+const inlineCodeReg = /(`{1,2})[^`]+\1/g;
+const angleBracketReg = /<[^\s:]*:\S*>/g;
+const plugin = ({ vueCompilerOptions }) => {
+    return {
+        version: 2.2,
+        getLanguageId(fileName) {
+            if (vueCompilerOptions.vitePressExtensions.some(ext => fileName.endsWith(ext))) {
+                return 'markdown';
+            }
+        },
+        isValidFile(_fileName, languageId) {
+            return languageId === 'markdown';
+        },
+        parseSFC2(_fileName, languageId, content) {
+            if (languageId !== 'markdown') {
+                return;
+            }
+            for (const reg of [frontmatterReg, codeblockReg, codeSnippetImportReg]) {
+                content = content.replace(reg, match => ' '.repeat(match.length));
+            }
+            const codes = [];
+            for (const { 0: text, index } of content.matchAll(sfcBlockReg)) {
+                codes.push([text, undefined, index]);
+                codes.push('\n\n');
+                content = content.slice(0, index) + ' '.repeat(text.length) + content.slice(index + text.length);
+            }
+            const ranges = [];
+            for (const reg of [htmlTagReg, interpolationReg]) {
+                for (const { 0: text, index } of content.matchAll(reg)) {
+                    ranges.push([index, index + text.length]);
+                }
+            }
+            for (const reg of [inlineCodeReg, angleBracketReg]) {
+                for (const { 0: text, index } of content.matchAll(reg)) {
+                    if (ranges.some(([start, end]) => index >= start && index < end)) {
+                        continue;
+                    }
+                    content = content.slice(0, index) + ' '.repeat(text.length) + content.slice(index + text.length);
+                }
+            }
+            codes.push('<template>\n');
+            codes.push([content, undefined, 0]);
+            codes.push('\n</template>');
+            const mappings = (0, buildMappings_1.buildMappings)(codes);
+            const mapper = new language_core_1.SourceMap(mappings);
+            const sfc = (0, parseSfc_1.parse)((0, muggle_string_1.toString)(codes));
+            for (const block of [
+                sfc.descriptor.template,
+                sfc.descriptor.script,
+                sfc.descriptor.scriptSetup,
+                ...sfc.descriptor.styles,
+                ...sfc.descriptor.customBlocks,
+            ]) {
+                if (block) {
+                    transformRange(block);
+                }
+            }
+            return sfc;
+            function transformRange(block) {
+                const { start, end } = block.loc;
+                const startOffset = start.offset;
+                const endOffset = end.offset;
+                start.offset = -1;
+                end.offset = -1;
+                for (const [offset] of mapper.toSourceLocation(startOffset)) {
+                    start.offset = offset;
+                    break;
+                }
+                for (const [offset] of mapper.toSourceLocation(endOffset)) {
+                    end.offset = offset;
+                    break;
+                }
+            }
+        },
+    };
+};
+exports.default = plugin;
+//# sourceMappingURL=file-md.js.map

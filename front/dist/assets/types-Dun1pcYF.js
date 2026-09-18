@@ -1,0 +1,1 @@
+import{aF as m}from"./index-DMW8fBgy.js";function r(a,t=[]){return t.find(e=>e.code===a)?.name||a||"未设置"}function f(a){return`${a.last_name||""}${a.first_name||""}`.trim()||a.username}function o(a){return m(a)}export{f as d,o as f,r};

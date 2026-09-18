@@ -1,0 +1,12 @@
+@import './styles/base.css';
+@import './styles/layout.css';
+@import './styles/components.css';
+@import './styles/pages.css';
+@import './styles/theme-light.css';
+@import './styles/theme-palettes.css';
+
+/* 用户要求全站字体去掉加粗，放在最后覆盖各页面和组件里的局部字重。 */
+body,
+body * {
+  font-weight: 400 !important;
+}

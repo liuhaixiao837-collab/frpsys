@@ -1,0 +1,1502 @@
+/* Four application-wide palettes. Keep data-theme as the dark/light compatibility layer. */
+
+:root[data-palette="obsidian"] {
+  --theme-page: #11131a;
+  --theme-page-alt: #171a24;
+  --theme-panel: #1e2330;
+  --theme-panel-soft: #171b26;
+  --theme-panel-strong: #272d3c;
+  --theme-border: #3d4659;
+  --theme-border-strong: #58657d;
+  --theme-text: #e0e6f1;
+  --theme-text-strong: #fafcff;
+  --theme-muted: #9ca9bc;
+  --theme-accent: #4f46e5;
+  --theme-accent-hover: #4338ca;
+  --theme-accent-secondary: #0891b2;
+  --theme-accent-soft: rgb(79 70 229 / 17%);
+  --theme-chart-3: #2563eb;
+  --theme-chart-4: #06b6d4;
+  --theme-chart-5: #f43f5e;
+  --theme-chart-6: #ef6464;
+  --theme-sidebar-start: #242839;
+  --theme-sidebar-end: #0f1118;
+  --theme-header: rgb(17 19 26 / 92%);
+  --theme-shadow: 0 22px 58px rgb(4 5 12 / 46%);
+}
+
+:root[data-palette="navy"] {
+  --theme-page: #10161d;
+  --theme-page-alt: #151d26;
+  --theme-panel: #1c2631;
+  --theme-panel-soft: #151d26;
+  --theme-panel-strong: #25313e;
+  --theme-border: #3d4c5c;
+  --theme-border-strong: #526477;
+  --theme-text: #dbe4ec;
+  --theme-text-strong: #f8fbfd;
+  --theme-muted: #96a6b5;
+  --theme-accent: #2563eb;
+  --theme-accent-hover: #1d4ed8;
+  --theme-accent-secondary: #0891b2;
+  --theme-accent-soft: rgb(37 99 235 / 18%);
+  --theme-chart-3: #10b981;
+  --theme-chart-4: #06b6d4;
+  --theme-chart-5: #14b8a6;
+  --theme-chart-6: #ae626a;
+  --theme-sidebar-start: #202b36;
+  --theme-sidebar-end: #0f151c;
+  --theme-header: rgb(16 22 29 / 90%);
+  --theme-shadow: 0 22px 58px rgb(3 8 13 / 44%);
+}
+
+:root[data-palette="pearl"] {
+  --theme-page: #f1f4fc;
+  --theme-page-alt: #e6ebf8;
+  --theme-panel: #fcfdff;
+  --theme-panel-soft: #eef2fb;
+  --theme-panel-strong: #e2e8f5;
+  --theme-border: #bcc7df;
+  --theme-border-strong: #98a9cc;
+  --theme-text: #303b58;
+  --theme-text-strong: #1d2947;
+  --theme-muted: #617093;
+  --theme-accent: #4f46e5;
+  --theme-accent-hover: #4338ca;
+  --theme-accent-secondary: #2563eb;
+  --theme-accent-soft: rgb(79 70 229 / 11%);
+  --theme-chart-3: #0891b2;
+  --theme-chart-4: #2563eb;
+  --theme-chart-5: #e11d48;
+  --theme-chart-6: #ac5660;
+  --theme-sidebar-start: #e1e7f5;
+  --theme-sidebar-end: #d1daed;
+  --theme-header: rgb(249 250 255 / 94%);
+  --theme-shadow: 0 20px 50px rgb(48 59 88 / 16%);
+}
+
+:root[data-palette="silver"] {
+  --theme-page: #edf5fb;
+  --theme-page-alt: #e1eef8;
+  --theme-panel: #fbfdff;
+  --theme-panel-soft: #edf6fc;
+  --theme-panel-strong: #dfeef8;
+  --theme-border: #b5cede;
+  --theme-border-strong: #8fb2c8;
+  --theme-text: #29465a;
+  --theme-text-strong: #18364a;
+  --theme-muted: #56788e;
+  --theme-accent: #2563eb;
+  --theme-accent-hover: #1d4ed8;
+  --theme-accent-secondary: #0891b2;
+  --theme-accent-soft: rgb(37 99 235 / 11%);
+  --theme-chart-3: #10b981;
+  --theme-chart-4: #06b6d4;
+  --theme-chart-5: #0f9f86;
+  --theme-chart-6: #aa5961;
+  --theme-sidebar-start: #d9eaf5;
+  --theme-sidebar-end: #c7deed;
+  --theme-header: rgb(247 251 254 / 94%);
+  --theme-shadow: 0 20px 50px rgb(29 71 98 / 16%);
+}
+
+/* Map palette tokens to the variables already used by legacy and migrated pages. */
+:root[data-palette] {
+  --theme-action-primary: #2563eb;
+  --theme-action-primary-hover: #1d4ed8;
+  --theme-action-primary-border: #3b82f6;
+  --theme-action-edit-text: #bfdbfe;
+  --theme-action-edit-bg: rgb(37 99 235 / 14%);
+  --theme-action-edit-border: rgb(96 165 250 / 48%);
+  --theme-action-child-text: #c4b5fd;
+  --theme-action-child-bg: rgb(124 58 237 / 14%);
+  --theme-action-child-border: rgb(167 139 250 / 46%);
+  --theme-action-member-text: #67e8f9;
+  --theme-action-member-bg: rgb(6 182 212 / 14%);
+  --theme-action-member-border: rgb(34 211 238 / 46%);
+  --theme-action-secondary-text: color-mix(in srgb, var(--theme-accent) 38%, white);
+  --theme-action-secondary-bg: color-mix(in srgb, var(--theme-accent) 18%, var(--theme-panel));
+  --theme-action-secondary-border: color-mix(in srgb, var(--theme-accent) 58%, var(--theme-border));
+  --theme-action-secondary-hover: color-mix(in srgb, var(--theme-accent) 24%, var(--theme-panel));
+  --cyan: var(--theme-accent-secondary);
+  --primary: var(--theme-accent);
+  --primary-strong: var(--theme-accent-hover);
+  --primary-soft: var(--theme-accent-soft);
+  --surface: var(--theme-panel);
+  --surface-soft: var(--theme-panel-soft);
+  --surface-deep: var(--theme-page);
+  --surface-muted: var(--theme-panel-strong);
+  --line: var(--theme-border);
+  --line-soft: var(--theme-border);
+  --muted: var(--theme-muted);
+  --text: var(--theme-text);
+  --text-strong: var(--theme-text-strong);
+  --ops-page-bg: var(--theme-page);
+  --ops-panel-bg: var(--theme-panel);
+  --ops-panel-muted: var(--theme-panel-soft);
+  --ops-header-bg: var(--theme-panel-strong);
+  --ops-border: var(--theme-border);
+  --ops-border-strong: var(--theme-border-strong);
+  --ops-row-alt: color-mix(in srgb, var(--theme-accent) 3%, transparent);
+  --ops-row-hover: color-mix(in srgb, var(--theme-accent) 9%, var(--theme-panel));
+  --ops-text: var(--theme-text);
+  --ops-muted: var(--theme-muted);
+}
+
+:root[data-palette][data-theme="light"] {
+  --theme-action-secondary-text: var(--theme-accent-hover);
+  --theme-action-secondary-bg: color-mix(in srgb, var(--theme-accent) 10%, white);
+  --theme-action-secondary-border: color-mix(in srgb, var(--theme-accent) 48%, var(--theme-border));
+  --theme-action-secondary-hover: color-mix(in srgb, var(--theme-accent) 14%, var(--theme-panel));
+  --theme-action-child-text: #6d28d9;
+  --theme-action-child-bg: #f5f3ff;
+  --theme-action-child-border: #c4b5fd;
+  --theme-action-member-text: #0e7490;
+  --theme-action-member-bg: #ecfeff;
+  --theme-action-member-border: #67e8f9;
+}
+
+:root[data-palette] body,
+:root[data-palette] .app-shell {
+  color: var(--theme-text);
+  background: var(--theme-page);
+}
+
+:root[data-palette] .app-shell > main {
+  color: var(--theme-text);
+  background: linear-gradient(145deg, var(--theme-page) 0%, var(--theme-page-alt) 64%, var(--theme-page) 100%);
+}
+
+:root[data-palette] .app-shell > main > header {
+  color: var(--theme-text);
+  background: var(--theme-header);
+  border-bottom-color: var(--theme-border);
+  box-shadow: 0 7px 22px color-mix(in srgb, var(--theme-page) 78%, transparent);
+}
+
+:root[data-palette] header h1,
+:root[data-palette] .panel-head h3,
+:root[data-palette] .modal-head h2,
+:root[data-palette] .confirm-card h2,
+:root[data-palette] .confirm-dialog-card h2 {
+  color: var(--theme-text-strong);
+}
+
+:root[data-palette] header small,
+:root[data-palette] .panel-head small {
+  color: var(--theme-muted);
+}
+
+:root[data-palette] .sidebar {
+  color: var(--theme-text);
+  background: linear-gradient(180deg, var(--theme-sidebar-start), var(--theme-sidebar-end));
+  border-right-color: var(--theme-border);
+  box-shadow: 18px 0 42px color-mix(in srgb, var(--theme-page) 45%, transparent);
+}
+
+:root[data-palette] .brand,
+:root[data-palette] .sidebar-footer,
+:root[data-palette] .nav-children {
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] .brand-mark {
+  background: linear-gradient(135deg, var(--theme-accent), var(--theme-accent-secondary));
+  box-shadow: 0 12px 30px color-mix(in srgb, var(--theme-accent) 28%, transparent);
+}
+
+:root[data-palette] .brand strong,
+:root[data-palette] .user-card strong,
+:root[data-palette] .system-card strong {
+  color: var(--theme-text-strong);
+}
+
+:root[data-palette] :is(.brand small, .user-card small, .system-card small, .nav-group-toggle) {
+  color: var(--theme-muted);
+}
+
+:root[data-palette] :is(.nav-item, .nav-item svg, .nav-branch-toggle, .sidebar-collapse-button) {
+  color: var(--theme-text);
+}
+
+:root[data-palette] :is(.nav-group-toggle:hover, .nav-parent-row:hover, .nav-item:hover) {
+  color: var(--theme-text-strong);
+  background: color-mix(in srgb, var(--theme-accent) 10%, var(--theme-panel-soft));
+  border-color: var(--theme-border-strong);
+}
+
+:root[data-palette] :is(
+  .nav-parent-row.active, .nav-item.active, .nav-item.router-link-exact-active,
+  .nav-group-link.active, .nav-group-link.router-link-exact-active
+) {
+  color: #fff;
+  background: linear-gradient(90deg, var(--theme-accent), color-mix(in srgb, var(--theme-accent) 76%, var(--theme-accent-secondary)));
+  border-color: color-mix(in srgb, var(--theme-accent) 72%, white);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--theme-accent) 25%, transparent);
+}
+
+:root[data-palette] :is(.user-card, .system-card, .sidebar-collapse-button) {
+  color: var(--theme-text);
+  background: color-mix(in srgb, var(--theme-panel) 82%, transparent);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .panel, .crud-panel, .prompt, .toolbar > div, .query-bar,
+  .modal-card, .confirm-dialog-card, .confirm-card, .cards article, .stats article,
+  .platform-settings-card, .system-status-summary article, .system-status-chart-panel,
+  .system-runtime-band
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--theme-page) 46%, transparent);
+}
+
+:root[data-palette] :is(.modal-head, .modal-footer, .crud-header, .platform-settings-tabs) {
+  color: var(--theme-text);
+  background: var(--theme-panel-strong);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .page, .modal-card, .form-grid, .bastion-form, .image-scan-page, .k8s-main
+) :is(input:not([type="checkbox"]):not([type="radio"]), textarea, select),
+:root[data-palette] :is(.custom-select-trigger, .search-box, .bastion-search input, .page-jump input, .bastion-pagination input) {
+  color: var(--theme-text);
+  background: var(--theme-panel-soft);
+  border-color: var(--theme-border-strong);
+}
+
+:root[data-palette] :is(input, textarea)::placeholder {
+  color: var(--theme-muted);
+}
+
+:root[data-palette] :is(input, textarea, select, .custom-select-trigger):focus {
+  border-color: var(--theme-accent);
+  box-shadow: 0 0 0 3px var(--theme-accent-soft);
+}
+
+:root[data-palette] :is(
+  .primary,
+  .search-action-button,
+  .audit-toolbar button[type="submit"],
+  .bastion-search button[type="submit"]
+) {
+  color: #fff;
+  background: var(--theme-action-primary);
+  border-color: var(--theme-action-primary-border);
+}
+
+:root[data-palette] :is(
+  .primary,
+  .search-action-button,
+  .audit-toolbar button[type="submit"],
+  .bastion-search button[type="submit"]
+):hover:not(:disabled) {
+  color: #fff;
+  background: var(--theme-action-primary-hover);
+  border-color: var(--theme-action-primary-hover);
+}
+
+:root[data-palette] :is(
+  .secondary, .row-actions button, .pagination-bar button,
+  .bastion-actions button.secondary, .bastion-pagination button
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel-strong);
+  border-color: var(--theme-border-strong);
+}
+
+:root[data-palette] :is(
+  .pagination-info, .pagination-jump, .pagination-jump label,
+  .bastion-pagination, .crud-pagination
+) {
+  color: var(--theme-muted);
+}
+
+:root[data-palette] :is(
+  .governance-table, .member-table, .crud-table, .bastion-table-wrap
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .governance-table-row.table-head, .member-table-row.table-head,
+  .crud-header, .bastion-table-wrap th
+) {
+  color: var(--theme-muted);
+  background: var(--theme-panel-strong) !important;
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .governance-table-row, .member-table-row, .crud-row, .bastion-table-wrap td
+) {
+  color: var(--theme-text);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(.custom-select-menu, .asset-tree-context-menu) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border-strong);
+  box-shadow: var(--theme-shadow);
+}
+
+:root[data-palette] :is(.custom-select-menu button, .asset-tree-context-menu button) {
+  color: var(--theme-text);
+}
+
+:root[data-palette] :is(.custom-select-menu button:hover, .custom-select-menu button.highlighted, .custom-select-menu button[aria-selected="true"], .asset-tree-context-menu button:hover) {
+  color: var(--theme-accent);
+  background: var(--theme-accent-soft);
+}
+
+:root[data-palette] .custom-select-menu button.custom-select-option-success {
+  color: var(--theme-success-text, #86efac);
+}
+
+:root[data-palette] .custom-select-menu button.custom-select-option-warning {
+  color: var(--theme-warning-text, #fcd34d);
+}
+
+:root[data-palette] .custom-select-menu button.custom-select-option-danger {
+  color: var(--theme-danger-text, #fca5a5);
+}
+
+:root[data-palette] .custom-select-menu button.custom-select-option-success:is(:hover, .highlighted, [aria-selected="true"]) {
+  background: var(--theme-success-bg, rgb(34 197 94 / 12%));
+}
+
+:root[data-palette] .custom-select-menu button.custom-select-option-warning:is(:hover, .highlighted, [aria-selected="true"]) {
+  background: var(--theme-warning-bg, rgb(245 158 11 / 12%));
+}
+
+:root[data-palette] .custom-select-menu button.custom-select-option-danger:is(:hover, .highlighted, [aria-selected="true"]) {
+  background: var(--theme-danger-bg, rgb(239 68 68 / 12%));
+}
+
+/* Migrated Kubernetes workspace: theme the frame, data cards, forms, tables and dialogs. */
+:root[data-palette] :is(
+  .k8s-cluster-page, .k8s-resource-page, .k8s-yaml-page, .k8s-helm-page,
+  .k8s-platform-page, .k8s-observe-page, .k8s-audit-page, .k8s-report-center
+) {
+  color: var(--theme-text);
+}
+
+:root[data-palette] :is(
+  .k8s-page-head, .k8s-toolbar, .k8s-cluster-query, .k8s-cluster-toolbar,
+  .k8s-cluster-card, .k8s-cluster-ledger-card, .k8s-cluster-profile,
+  .k8s-table-wrap, .k8s-resource-toolbar, .k8s-form-section, .k8s-detail-section,
+  .k8s-detail-drawer, .k8s-drawer-modal, .k8s-yaml-workbench, .k8s-yaml-result,
+  .k8s-helm-toolbar, .k8s-helm-detail, .k8s-platform-panel, .k8s-source-panel,
+  .k8s-report-panel, .k8s-report-kpi, .k8s-health-hero, .k8s-health-history,
+  .k8s-capability-grid > *, .k8s-stat-kpis > *, .k8s-report-grid > *,
+  .k8s-log-filters, .k8s-log-meta, .k8s-pod-log-modal, .k8s-action-menu,
+  .k8s-select-menu, .k8s-action-result, .k8s-batch-result, .k8s-edit-summary
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+  box-shadow: 0 10px 25px color-mix(in srgb, var(--theme-page) 35%, transparent);
+}
+
+:root[data-palette] :is(
+  .k8s-cluster-card-head, .k8s-cluster-card-foot, .k8s-kv-editor-head,
+  .k8s-report-head, .k8s-terminal-head, .k8s-select-option,
+  .k8s-cluster-facts > *, .k8s-detail-grid > *, .k8s-kv-editor-row,
+  .k8s-mini-list > *, .k8s-condition-list > *, .k8s-event-list > *,
+  .k8s-risk-list > *, .k8s-longterm-list > *, .k8s-operator-list > *
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel-soft);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(.k8s-cluster-table, .k8s-resource-table, .k8s-helm-resource-table) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(.k8s-cluster-table, .k8s-resource-table, .k8s-helm-resource-table) th {
+  color: var(--theme-muted);
+  background: var(--theme-panel-strong);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(.k8s-cluster-table, .k8s-resource-table, .k8s-helm-resource-table) td {
+  color: var(--theme-text);
+  background: transparent;
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(.k8s-cluster-table, .k8s-resource-table, .k8s-helm-resource-table) tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--theme-accent) 3%, transparent);
+}
+
+:root[data-palette] :is(.k8s-cluster-table, .k8s-resource-table, .k8s-helm-resource-table) tbody tr:hover td {
+  background: color-mix(in srgb, var(--theme-accent) 9%, var(--theme-panel));
+}
+
+:root[data-palette] :is(
+  .k8s-cluster-search, .k8s-cluster-selector, .k8s-log-query,
+  .k8s-select-trigger, .k8s-action-trigger, .k8s-secret-field input,
+  .k8s-form-grid input, .k8s-form-grid textarea, .k8s-form-grid select,
+  .k8s-resource-toolbar input, .k8s-yaml-page input, .k8s-helm-page input
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel-soft);
+  border-color: var(--theme-border-strong);
+}
+
+:root[data-palette] :is(
+  .k8s-page-title h2, .k8s-title-block h2, .k8s-cluster-identity strong,
+  .k8s-report-kpi strong, .k8s-health-score strong, .k8s-platform-panel h3,
+  .k8s-detail-section h3, .k8s-form-section h3
+) {
+  color: var(--theme-text-strong);
+}
+
+:root[data-palette] :is(
+  .k8s-page-title p, .k8s-title-block p, .k8s-toolbar-note,
+  .k8s-cluster-endpoint, .k8s-cluster-message, .k8s-terminal-meta
+) {
+  color: var(--theme-muted);
+}
+
+:root[data-palette] :is(.k8s-cluster-index, .k8s-row-index) {
+  color: var(--theme-text-strong);
+  background: var(--theme-accent-soft);
+  border-color: color-mix(in srgb, var(--theme-accent) 42%, var(--theme-border));
+}
+
+:root[data-palette] :is(.k8s-select-option:hover, .k8s-select-option.active) {
+  color: var(--theme-accent);
+  background: var(--theme-accent-soft);
+}
+
+:root[data-palette][data-theme="light"] :is(
+  .k8s-placeholder h2, .k8s-page-head h2, .k8s-helm-toolbar-title h2,
+  .k8s-cluster-ledger-card strong, .k8s-cluster-identity h3,
+  .k8s-cluster-endpoint strong, .k8s-cluster-card-foot strong,
+  .k8s-detail-grid strong, .k8s-kv-list strong,
+  .k8s-condition-list strong, .k8s-event-list strong, .k8s-event-list b,
+  .k8s-yaml-result h3, .k8s-edit-summary strong,
+  .k8s-health-history td, .k8s-health-history th,
+  .k8s-report-head h2, .k8s-health-score strong,
+  .k8s-cluster-profile strong, .k8s-report-kpi b,
+  .k8s-report-panel strong, .k8s-risk-list span,
+  .k8s-log-meta b, .k8s-pod-log-pill b,
+  .k8s-source-panel header strong, .k8s-source-item span,
+  .k8s-stat-kpis strong, .k8s-capability-grid strong,
+  .k8s-mini-list span, .k8s-operator-list b
+) {
+  color: var(--theme-text-strong);
+}
+
+:root[data-palette][data-theme="light"] :is(
+  .k8s-cluster-facts strong, .k8s-cluster-facts b, .k8s-cluster-facts dd,
+  .k8s-detail-section dd, .k8s-form-section label,
+  .k8s-kv-editor-row, .k8s-report-panel li,
+  .k8s-platform-panel li, .k8s-source-panel li
+) {
+  color: var(--theme-text);
+}
+
+:root[data-palette][data-theme="light"] :is(
+  .k8s-resource-toolbar input, .k8s-log-filters input,
+  .k8s-pod-log-filters input, .k8s-console .crud-pagination input,
+  .k8s-console .secondary, .k8s-console .icon-button
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel-soft);
+  border-color: var(--theme-border-strong);
+}
+
+/* Terminals and source/YAML editors intentionally remain dark for syntax contrast. */
+:root[data-palette][data-theme="light"] :is(
+  .k8s-terminal-window, .k8s-terminal-card, .k8s-terminal-dock,
+  .k8s-pod-terminal-host, .k8s-log-viewer, .k8s-pod-log-viewer,
+  .k8s-exec-output, .k8s-json-preview, .k8s-yaml-editor
+) {
+  color: #dbeafe;
+  background: #0b1220;
+  border-color: #334155;
+}
+
+/* CI/CD migrated pages, including image scan, follow the active palette. */
+:root[data-palette] :is(
+  .image-scan-page, .image-scan-default, .image-scan-plan-section,
+  .image-scan-summary-strip, .image-scan-tabs, .image-scan-record-table,
+  .image-scan-findings-table, .image-scan-trivy-table, .image-scan-detail,
+  .image-scan-launch-dialog, .image-scan-schedule-dialog, .image-scan-time-menu,
+  .image-scan-report-context, .image-scan-report-formats, .image-scan-schedule-section
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+  box-shadow: 0 10px 25px color-mix(in srgb, var(--theme-page) 35%, transparent);
+}
+
+:root[data-palette] :is(
+  .image-scan-counts > *, .image-scan-tabs, .image-scan-tab,
+  .image-scan-time-trigger, .image-scan-time-options button,
+  .image-scan-schedule-fields, .image-scan-report-radio
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel-soft);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(.image-scan-tab.active, .image-scan-time-options button.active, .image-scan-report-radio:has(input:checked)) {
+  color: var(--theme-text-strong);
+  background: var(--theme-accent-soft);
+  border-color: var(--theme-accent);
+}
+
+:root[data-palette] .image-scan-tab span {
+  color: var(--theme-muted);
+  background: var(--theme-panel-strong);
+}
+
+:root[data-palette] .image-scan-tab.active span {
+  color: var(--theme-text-strong);
+  background: var(--theme-accent-soft);
+  border: 1px solid color-mix(in srgb, var(--theme-accent) 42%, var(--theme-border));
+}
+
+:root[data-palette] .image-scan-page .badge.status-success {
+  color: var(--theme-success-text);
+  background: var(--theme-success-bg);
+  border-color: var(--theme-success-border);
+}
+
+:root[data-palette] .image-scan-page .badge.status-warning {
+  color: var(--theme-warning-text);
+  background: var(--theme-warning-bg);
+  border-color: var(--theme-warning-border);
+}
+
+:root[data-palette] .image-scan-page .badge.status-danger {
+  color: var(--theme-danger-text);
+  background: var(--theme-danger-bg);
+  border-color: var(--theme-danger-border);
+}
+
+:root[data-palette] .image-scan-page .badge.status-muted {
+  color: var(--theme-muted);
+  background: var(--theme-panel-strong);
+  border-color: var(--theme-border-strong);
+}
+
+:root[data-palette] .default-registry-pill {
+  color: var(--theme-success-text);
+  background: var(--theme-success-bg);
+  border-color: var(--theme-success-border);
+}
+
+:root[data-palette] :is(.image-registry-table, .helm-repository-table) small {
+  color: var(--theme-muted);
+}
+
+:root[data-palette] :is(.image-scan-table, .image-scan-record-table, .image-scan-findings-table, .image-scan-trivy-table, .image-scan-schedule-table) th {
+  color: var(--theme-muted);
+  background: var(--theme-panel-strong);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(.image-scan-table, .image-scan-record-table, .image-scan-findings-table, .image-scan-trivy-table, .image-scan-schedule-table) td {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(.ci-release-page, .ci-build-panel, .ci-workspace, .ci-panel, .ci-card, .ci-section) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .ci-worker-panel, .ci-config-center-panel, .config-content-panel,
+  .config-embedded-panel, .config-version-panel, .chart-catalog-panel,
+  .image-catalog-panel, .chart-detail, .chart-preview, .chart-code-edit-content,
+  .ci-approval-detail, .ci-log-detail, .ci-worker-log-detail,
+  .ci-release-context-preview, .ci-publish-service-card,
+  .ci-release-form, .config-build-command-form, .config-environment-form,
+  .config-runtime-form, .config-template-form, .config-version-form,
+  .helm-namespace-form, .helm-repository-form, .image-registry-form,
+  .namespace-editor, .chart-clone-summary, .chart-preview-summary
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette][data-theme="light"] :is(
+  .ci-worker-panel, .ci-config-center-panel, .config-content-panel,
+  .config-embedded-panel, .config-version-panel, .chart-catalog-panel,
+  .image-catalog-panel, .ci-approval-detail, .ci-log-detail,
+  .ci-worker-log-detail, .ci-release-form, .ci-release-context-preview,
+  .ci-publish-service-card, .chart-detail, .chart-preview,
+  .image-scan-page, .image-scan-detail
+) :is(h2, h3, h4, strong, b, dt, dd, label) {
+  color: var(--theme-text-strong);
+}
+
+:root[data-palette][data-theme="light"] :is(
+  .ci-worker-panel, .ci-config-center-panel, .config-content-panel,
+  .config-embedded-panel, .config-version-panel, .chart-catalog-panel,
+  .image-catalog-panel, .ci-approval-detail, .ci-log-detail,
+  .ci-worker-log-detail, .ci-release-form, .ci-release-context-preview,
+  .ci-publish-service-card, .chart-detail, .chart-preview,
+  .image-scan-page, .image-scan-detail
+) :is(p, small, span:not(.badge), li) {
+  color: var(--theme-text);
+}
+
+:root[data-palette] :is(
+  .config-menu, .config-runtime-list, .chart-file-list, .chart-version-list,
+  .chart-preview-resource-list, .helm-file-list, .registry-version-list,
+  .ci-release-summary-list, .chart-preview-toolbar, .config-version-toolbar,
+  .registry-catalog-toolbar, .ci-rollback-toolbar, .image-scan-toolbar
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel-soft);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(.config-kind-nav, .config-center-layout) {
+  color: var(--theme-text);
+  background: var(--theme-panel-soft);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .config-menu-item, .config-tree-head, .config-runtime-select,
+  .config-runtime-empty, .config-icon-item, .config-nav-collapse,
+  .runtime-add-button, .runtime-row-actions button
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .config-menu-item:hover, .config-menu-item.active,
+  .config-tree-head:hover, .config-tree-head.active,
+  .config-runtime-select:hover, .config-runtime-select.active,
+  .config-runtime-empty:hover, .config-icon-item:hover, .config-icon-item.active
+) {
+  color: var(--theme-text-strong);
+  background: var(--theme-accent-soft);
+  border-color: var(--theme-accent);
+  box-shadow: inset 3px 0 0 var(--theme-accent);
+}
+
+:root[data-palette] :is(.config-nav-title b, .config-version-toolbar b, .dockerfile-extra-title b) {
+  color: var(--theme-text-strong);
+}
+
+:root[data-palette] :is(.config-nav-title span, .config-filter-bar span, .config-runtime-select small, .runtime-loading) {
+  color: var(--theme-muted);
+}
+
+:root[data-palette] :is(
+  .ci-approval-detail-modal, .ci-job-detail-modal,
+  .ci-worker-log-dialog .modal-card, .ci-worker-log-detail-dialog .modal-card,
+  .ci-rollback-modal,
+  .chart-clone-modal, .chart-detail-dialog .modal-card, .chart-detail-modal,
+  .chart-preview-modal, .chart-version-modal, .registry-catalog-modal,
+  .registry-version-modal, .image-scan-launch-dialog .modal-card,
+  .image-scan-report-dialog .modal-card, .image-scan-schedule-dialog .modal-card,
+  .ci-download-progress-card, .ci-center-toast-card
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border-strong);
+  box-shadow: var(--theme-shadow);
+}
+
+:root[data-palette][data-theme="dark"] .ci-rollback-dialog {
+  background: rgb(2 6 23 / 76%);
+  backdrop-filter: blur(3px);
+}
+
+:root[data-palette][data-theme="light"] .ci-rollback-dialog {
+  background: rgb(44 62 84 / 48%);
+  backdrop-filter: blur(3px);
+}
+
+:root[data-palette] .ci-rollback-dialog .modal-card {
+  border-color: var(--theme-border-strong);
+  box-shadow: 0 28px 80px rgb(15 23 42 / 34%);
+}
+
+:root[data-palette] :is(
+  .ci-approval-detail-modal, .ci-job-detail-modal,
+  .ci-rollback-modal, .chart-clone-modal,
+  .chart-detail-modal, .chart-preview-modal, .chart-version-modal,
+  .registry-catalog-modal, .registry-version-modal, .image-scan-launch-dialog,
+  .image-scan-report-dialog, .image-scan-schedule-dialog
+) :is(header, footer) {
+  color: var(--theme-text);
+  background: var(--theme-panel-strong);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(.ci-worker-log-dialog, .ci-worker-log-detail-dialog) .modal-card > :is(.modal-head, .modal-footer) {
+  color: var(--theme-text);
+  background: var(--theme-panel-strong);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .ci-approval-detail, .ci-release-form, .config-build-command-form,
+  .config-environment-form, .config-runtime-form, .config-template-form,
+  .config-version-form, .helm-namespace-form, .helm-repository-form,
+  .image-registry-form, .image-scan-form, .namespace-editor,
+  .chart-clone-modal, .chart-version-modal, .registry-version-modal
+) :is(input:not([type="checkbox"]):not([type="radio"]), textarea, select) {
+  color: var(--theme-text);
+  background: var(--theme-panel-soft);
+  border-color: var(--theme-border-strong);
+}
+
+:root[data-palette] :is(
+  .ci-approval-detail-service-table, .ci-approval-ticket-table,
+  .ci-job-table, .ci-publish-table, .ci-release-table, .ci-rollback-table,
+  .ci-code-repository-table, .ci-service-table, .ci-worker-log-table, .ci-worker-table,
+  .config-build-command-table, .config-environment-table, .config-runtime-table,
+  .config-template-table, .config-version-table, .chart-catalog-table,
+  .helm-namespace-table, .helm-repository-table, .image-registry-table,
+  .registry-catalog-table
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .ci-approval-detail-service-table, .ci-approval-ticket-table,
+  .ci-job-table, .ci-publish-table, .ci-release-table, .ci-rollback-table,
+  .ci-code-repository-table, .ci-service-table, .ci-worker-log-table, .ci-worker-table,
+  .config-build-command-table, .config-environment-table, .config-runtime-table,
+  .config-template-table, .config-version-table, .chart-catalog-table,
+  .helm-namespace-table, .helm-repository-table, .image-registry-table,
+  .registry-catalog-table
+) th {
+  color: var(--theme-muted);
+  background: var(--theme-panel-strong);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .ci-approval-detail-service-table, .ci-approval-ticket-table,
+  .ci-job-table, .ci-publish-table, .ci-release-table, .ci-rollback-table,
+  .ci-code-repository-table, .ci-service-table, .ci-worker-log-table, .ci-worker-table,
+  .config-build-command-table, .config-environment-table, .config-runtime-table,
+  .config-template-table, .config-version-table, .chart-catalog-table,
+  .helm-namespace-table, .helm-repository-table, .image-registry-table,
+  .registry-catalog-table
+) td {
+  color: var(--theme-text);
+  background: transparent;
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .ci-approval-detail-service-table, .ci-approval-ticket-table,
+  .ci-job-table, .ci-publish-table, .ci-release-table, .ci-rollback-table,
+  .ci-code-repository-table, .ci-service-table, .ci-worker-log-table, .ci-worker-table,
+  .config-build-command-table, .config-environment-table, .config-runtime-table,
+  .config-template-table, .config-version-table, .chart-catalog-table,
+  .helm-namespace-table, .helm-repository-table, .image-registry-table,
+  .registry-catalog-table
+) tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--theme-accent) 3%, transparent);
+}
+
+:root[data-palette] :is(
+  .ci-approval-detail-service-table, .ci-approval-ticket-table,
+  .ci-job-table, .ci-publish-table, .ci-release-table, .ci-rollback-table,
+  .ci-code-repository-table, .ci-service-table, .ci-worker-log-table, .ci-worker-table,
+  .config-build-command-table, .config-environment-table, .config-runtime-table,
+  .config-template-table, .config-version-table, .chart-catalog-table,
+  .helm-namespace-table, .helm-repository-table, .image-registry-table,
+  .registry-catalog-table
+) tbody tr:hover td {
+  background: color-mix(in srgb, var(--theme-accent) 9%, var(--theme-panel));
+}
+
+:root[data-palette][data-theme="light"] :is(
+  .chart-code-edit-shell, .chart-file-preview, .helm-file-panel,
+  .helm-file-preview, .dockerfile_content
+) {
+  color: #dbeafe;
+  background: #0b1220;
+  border-color: #334155;
+}
+
+/* Semantic colors keep status text readable without turning full panels into alerts. */
+:root[data-palette] {
+  --theme-success-text: #86efac;
+  --theme-success-bg: rgb(34 197 94 / 12%);
+  --theme-success-border: rgb(74 222 128 / 40%);
+  --theme-warning-text: #fcd34d;
+  --theme-warning-bg: rgb(245 158 11 / 12%);
+  --theme-warning-border: rgb(245 158 11 / 40%);
+  --theme-danger-text: #fca5a5;
+  --theme-danger-bg: rgb(239 68 68 / 12%);
+  --theme-danger-border: rgb(248 113 113 / 42%);
+}
+
+:root[data-palette][data-theme="light"] {
+  --theme-action-edit-text: #1d4ed8;
+  --theme-action-edit-bg: #eff6ff;
+  --theme-action-edit-border: #93c5fd;
+  --theme-success-text: #166534;
+  --theme-success-bg: #f0fdf4;
+  --theme-success-border: #86c99d;
+  --theme-warning-text: #713f0c;
+  --theme-warning-bg: #fffbeb;
+  --theme-warning-border: #dfbd62;
+  --theme-danger-text: #991b1b;
+  --theme-danger-bg: #fff1f2;
+  --theme-danger-border: #e7a1a8;
+}
+
+/* Action colors remain semantic even when the selected palette uses a gray accent. */
+:root[data-palette] .bastion-search button[type="submit"] {
+  color: #fff !important;
+  background: var(--theme-action-primary) !important;
+  border-color: var(--theme-action-primary-border) !important;
+}
+
+:root[data-palette] .bastion-search button[type="submit"]:hover:not(:disabled) {
+  color: #fff !important;
+  background: var(--theme-action-primary-hover) !important;
+  border-color: var(--theme-action-primary-hover) !important;
+}
+
+:root[data-palette] :is(.action-edit, .edit-action, .settings-edit-button, button[title="编辑"]) {
+  color: var(--theme-action-edit-text) !important;
+  background: var(--theme-action-edit-bg) !important;
+  border-color: var(--theme-action-edit-border) !important;
+}
+
+:root[data-palette] :is(.action-warning, .action-toggle, button[title="禁用"], button[title="停用"]) {
+  color: var(--theme-warning-text) !important;
+  background: var(--theme-warning-bg) !important;
+  border-color: var(--theme-warning-border) !important;
+}
+
+:root[data-palette] :is(.action-success, button[title="启用"]) {
+  color: var(--theme-success-text) !important;
+  background: var(--theme-success-bg) !important;
+  border-color: var(--theme-success-border) !important;
+}
+
+:root[data-palette] button.danger-button {
+  color: #fff !important;
+  background: #dc2626 !important;
+  border-color: #ef4444 !important;
+}
+
+:root[data-palette] button.danger-button:hover:not(:disabled) {
+  color: #fff !important;
+  background: #b91c1c !important;
+  border-color: #dc2626 !important;
+}
+
+/* Legacy forms and multi-selects used fixed dark surfaces. */
+:root[data-palette] :is(
+  .bastion-form, .bastion-check-list, .transfer-multi-trigger,
+  .transfer-multi-menu, .transfer-asset-search
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel-soft);
+  border-color: var(--theme-border-strong);
+}
+
+:root[data-palette] .bastion-form {
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--theme-panel-soft) 84%, var(--theme-panel)),
+    var(--theme-panel)
+  );
+}
+
+:root[data-palette] :is(
+  .bastion-form label, .bastion-form label > span,
+  .bastion-check-option, .transfer-multi-option
+) {
+  color: var(--theme-text);
+}
+
+:root[data-palette] :is(.bastion-radio-option, .transfer-multi-option.selected) {
+  color: var(--theme-text);
+  background: var(--theme-accent-soft);
+  border-color: color-mix(in srgb, var(--theme-accent) 42%, var(--theme-border));
+}
+
+:root[data-palette] :is(
+  .transfer-empty-option, .transfer-multi-option em,
+  .ci-worker-multi-placeholder
+) {
+  color: var(--theme-muted);
+}
+
+:root[data-palette] .ci-worker-multi-tags b {
+  color: var(--theme-text-strong);
+  background: var(--theme-accent-soft);
+  border-color: color-mix(in srgb, var(--theme-accent) 42%, var(--theme-border));
+}
+
+:root[data-palette] .ci-worker-multi-tags b.stale,
+:root[data-palette] .ci-worker-multi-tags b > em {
+  color: var(--theme-warning-text);
+}
+
+:root[data-palette] .ci-worker-multi-tags b.stale {
+  background: var(--theme-warning-bg);
+  border-color: var(--theme-warning-border);
+}
+
+/* Approval, release and publish dialogs use the same surface hierarchy as the shell. */
+:root[data-palette] :is(
+  .ci-release-services, .ci-approval-flow-preview,
+  .ci-approval-detail-services, .ci-release-precheck,
+  .ci-release-context-preview, .ci-publish-service-card,
+  .ci-pipeline-flow
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel-soft);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .ci-release-services-head strong, .ci-release-context-item strong,
+  .ci-approval-step strong, .ci-publish-service-main strong,
+  .ci-release-precheck-head strong, .ci-release-precheck-text strong,
+  .ci-pipeline-step strong
+) {
+  color: var(--theme-text-strong);
+}
+
+:root[data-palette] :is(
+  .ci-approval-title-wrap span, .ci-approval-step span,
+  .ci-approval-step small, .ci-approval-empty,
+  .ci-release-context-preview, .ci-publish-service-main span,
+  .ci-release-precheck-text span, .ci-pipeline-step span
+) {
+  color: var(--theme-muted);
+}
+
+:root[data-palette] .ci-detail-list {
+  border-color: var(--theme-border);
+  background: var(--theme-panel);
+}
+
+:root[data-palette] .ci-detail-list :is(dt, dd) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] .ci-detail-list dt {
+  color: var(--theme-muted);
+  background: var(--theme-panel-strong);
+}
+
+:root[data-palette] :is(.ci-approval-step, .ci-pipeline-step) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border-strong);
+}
+
+/* Keep pipeline state colors above the generic themed card surface. */
+:root[data-palette] .ci-pipeline-step.status-available {
+  color: var(--theme-success-text);
+  background: var(--theme-success-bg);
+  border-color: var(--theme-success-border);
+}
+
+:root[data-palette] .ci-pipeline-step.status-configured {
+  color: var(--theme-accent);
+  background: var(--theme-accent-soft);
+  border-color: color-mix(in srgb, var(--theme-accent) 58%, var(--theme-border));
+}
+
+:root[data-palette] .ci-pipeline-step.status-unconfigured {
+  color: var(--theme-warning-text);
+  background: var(--theme-warning-bg);
+  border-color: var(--theme-warning-border);
+}
+
+:root[data-palette] .ci-pipeline-step.status-unavailable {
+  color: var(--theme-danger-text);
+  background: var(--theme-danger-bg);
+  border-color: var(--theme-danger-border);
+}
+
+:root[data-palette] .ci-pipeline-step.status-disabled {
+  color: var(--theme-muted);
+  background: color-mix(in srgb, var(--theme-panel-strong) 82%, var(--theme-border));
+  border-color: var(--theme-border-strong);
+}
+
+:root[data-palette] .ci-pipeline-step:is(
+  .status-available, .status-configured, .status-unconfigured,
+  .status-unavailable, .status-disabled
+) :is(strong, span) {
+  color: inherit;
+}
+
+:root[data-palette] .ci-publish-service-head {
+  color: var(--theme-text);
+  background: var(--theme-panel-strong);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] .ci-publish-service-toggle {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border-strong);
+}
+
+:root[data-palette] .ci-publish-service-toggle:hover:not(:disabled) {
+  color: var(--theme-accent);
+  background: var(--theme-accent-soft);
+  border-color: var(--theme-accent);
+}
+
+:root[data-palette] .ci-release-precheck-item {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .ci-approval-history-result.approved,
+  .ci-approval-step.approved em,
+  .ci-approval-title-wrap .badge.status-available,
+  .ci-release-precheck-head span.pass,
+  .ci-release-precheck-item.pass,
+  .ci-release-precheck-item.pass .ci-release-precheck-icon,
+  .ci-release-precheck-item.pass .ci-release-precheck-text small
+) {
+  color: var(--theme-success-text);
+}
+
+:root[data-palette] :is(
+  .ci-approval-history-result.approved,
+  .ci-approval-step.approved em,
+  .ci-approval-title-wrap .badge.status-available,
+  .ci-release-precheck-head span.pass,
+  .ci-release-precheck-item.pass
+) {
+  background: var(--theme-success-bg);
+  border-color: var(--theme-success-border);
+}
+
+:root[data-palette] .ci-approval-step.approved {
+  background: color-mix(in srgb, var(--theme-success-bg) 62%, var(--theme-panel));
+  border-color: var(--theme-success-border);
+}
+
+:root[data-palette] :is(
+  .ci-approval-step.pending em, .ci-approval-step.processing em,
+  .ci-approval-title-wrap .badge.status-unconfigured,
+  .ci-approval-lock-tip, .ci-release-precheck-head span.warn,
+  .ci-release-precheck-item.warn,
+  .ci-release-precheck-item.warn .ci-release-precheck-icon,
+  .ci-release-precheck-item.warn .ci-release-precheck-text small
+) {
+  color: var(--theme-warning-text);
+}
+
+:root[data-palette] :is(
+  .ci-approval-step.pending em, .ci-approval-step.processing em,
+  .ci-approval-title-wrap .badge.status-unconfigured,
+  .ci-approval-lock-tip, .ci-release-precheck-head span.warn,
+  .ci-release-precheck-item.warn
+) {
+  background: var(--theme-warning-bg);
+  border-color: var(--theme-warning-border);
+}
+
+:root[data-palette] .ci-approval-step.pending {
+  background: color-mix(in srgb, var(--theme-warning-bg) 62%, var(--theme-panel));
+  border-color: var(--theme-warning-border);
+}
+
+:root[data-palette] :is(
+  .ci-approval-history-result.rejected,
+  .ci-approval-step-reason, .ci-approval-step.rejected em,
+  .ci-approval-title-wrap .badge.status-unavailable,
+  .ci-approval-reject-reason strong, .ci-approval-reject-reason span,
+  .ci-release-context-preview.error,
+  .ci-release-precheck-head span.block,
+  .ci-release-precheck-item.block,
+  .ci-release-precheck-item.block .ci-release-precheck-icon,
+  .ci-release-precheck-item.block .ci-release-precheck-text small
+) {
+  color: var(--theme-danger-text);
+}
+
+:root[data-palette] :is(
+  .ci-approval-history-result.rejected,
+  .ci-approval-step.rejected em,
+  .ci-approval-title-wrap .badge.status-unavailable,
+  .ci-approval-reject-reason, .ci-release-context-preview.error,
+  .ci-release-precheck-head span.block,
+  .ci-release-precheck-item.block
+) {
+  background: var(--theme-danger-bg);
+  border-color: var(--theme-danger-border);
+}
+
+:root[data-palette] :is(
+  .permission-policy-context-stats b,
+  .permission-policy-department-row.active > b,
+  .permission-policy-subject-tabs b
+) {
+  color: var(--theme-text-strong);
+}
+
+:root[data-palette] :is(
+  .integration-layout .badge.status-available,
+  .integration-layout .badge.status-success,
+  .ci-release-table .badge.status-available,
+  .ci-publish-table .badge.status-available
+) {
+  color: var(--theme-success-text);
+  background: var(--theme-success-bg);
+  border-color: var(--theme-success-border);
+}
+
+:root[data-palette] :is(
+  .integration-layout .badge.status-unconfigured,
+  .integration-layout .badge.status-warning,
+  .ci-release-table .badge.status-unconfigured,
+  .ci-publish-table .badge.status-unconfigured
+) {
+  color: var(--theme-warning-text);
+  background: var(--theme-warning-bg);
+  border-color: var(--theme-warning-border);
+}
+
+:root[data-palette] :is(
+  .integration-layout .badge.status-unavailable,
+  .integration-layout .badge.status-danger,
+  .ci-release-table .badge.status-unavailable,
+  .ci-publish-table .badge.status-unavailable
+) {
+  color: var(--theme-danger-text);
+  background: var(--theme-danger-bg);
+  border-color: var(--theme-danger-border);
+}
+
+:root[data-palette] .ci-approval-step.rejected {
+  background: color-mix(in srgb, var(--theme-danger-bg) 62%, var(--theme-panel));
+  border-color: var(--theme-danger-border);
+}
+
+:root[data-palette] .ci-pipeline-arrow {
+  color: var(--theme-muted);
+}
+
+/* Chart catalog rows and chart dialogs must not retain a fixed navy canvas. */
+:root[data-palette] :is(
+  .chart-catalog-table-wrap, .chart-catalog-table,
+  .chart-version-head div, .chart-version-search, .chart-version-row,
+  .registry-catalog-table-wrap, .registry-catalog-table,
+  .registry-version-head div, .registry-version-search, .registry-version-row,
+  .chart-clone-summary div, .chart-clone-rule,
+  .chart-clone-options label
+) {
+  color: var(--theme-text);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette] :is(
+  .chart-version-head span, .registry-version-head span, .chart-clone-modal label span,
+  .chart-clone-summary span, .chart-clone-rule span
+) {
+  color: var(--theme-muted);
+}
+
+:root[data-palette] :is(
+  .chart-version-head strong, .registry-version-head strong, .chart-clone-summary strong,
+  .chart-clone-rule strong, .chart-clone-options span,
+  .chart-version-row code, .registry-version-row code
+) {
+  color: var(--theme-text-strong);
+}
+
+:root[data-palette] :is(.chart-catalog-table, .registry-catalog-table) tbody tr,
+:root[data-palette] :is(.chart-catalog-table, .registry-catalog-table) tbody tr:nth-child(even),
+:root[data-palette] :is(
+  .ci-approval-detail-service-table, .ci-approval-ticket-table,
+  .ci-job-table, .ci-publish-table, .ci-release-table, .ci-rollback-table,
+  .ci-code-repository-table, .ci-service-table, .ci-worker-log-table, .ci-worker-table,
+  .config-build-command-table, .config-environment-table, .config-runtime-table,
+  .config-template-table, .config-version-table, .chart-catalog-table,
+  .helm-namespace-table, .helm-repository-table, .image-registry-table,
+  .registry-catalog-table
+) tbody tr {
+  background: transparent;
+}
+
+:root[data-palette] :is(.chart-catalog-table, .registry-catalog-table) tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, var(--theme-accent) 3%, var(--theme-panel));
+}
+
+:root[data-palette] :is(.chart-catalog-table, .registry-catalog-table) tbody tr:hover td {
+  background: color-mix(in srgb, var(--theme-accent) 9%, var(--theme-panel));
+}
+
+:root[data-palette] :is(.version-inline-confirm, .version-inline-confirm::after) {
+  color: var(--theme-danger-text);
+  background: var(--theme-panel-strong);
+  border-color: var(--theme-danger-border);
+}
+
+:root[data-palette] .version-inline-confirm span {
+  color: var(--theme-danger-text);
+}
+
+:root[data-palette] :is(.chart-version-tag, .chart-tag, .registry-version-tag, .registry-tag) {
+  color: var(--theme-success-text);
+  background: var(--theme-success-bg);
+  border-color: var(--theme-success-border);
+}
+
+:root[data-palette] .chart-version-tag.default {
+  color: var(--theme-warning-text);
+  background: var(--theme-warning-bg);
+  border-color: var(--theme-warning-border);
+}
+
+:root[data-palette] :is(.chart-tag.empty, .registry-tag.empty) {
+  color: var(--theme-muted);
+  background: var(--theme-panel-soft);
+  border-color: var(--theme-border-strong);
+}
+
+:root[data-palette] :is(.chart-version-row, .registry-version-row):nth-child(even) {
+  background: color-mix(in srgb, var(--theme-accent) 3%, var(--theme-panel-soft));
+}
+
+:root[data-palette] :is(.chart-version-row, .registry-version-row):hover {
+  background: color-mix(in srgb, var(--theme-accent) 8%, var(--theme-panel));
+  border-color: color-mix(in srgb, var(--theme-accent) 42%, var(--theme-border));
+}
+
+:root[data-palette] .action-preview {
+  color: var(--theme-warning-text) !important;
+  background: var(--theme-warning-bg) !important;
+  border-color: var(--theme-warning-border) !important;
+}
+
+:root[data-palette] .action-preview:hover:not(:disabled) {
+  color: #fff !important;
+  background: #d97706 !important;
+  border-color: #f59e0b !important;
+}
+
+:root[data-palette] :is(.chart-version-feedback.loading, .registry-version-feedback.loading) {
+  color: #1d4ed8;
+  background: #eff6ff;
+  border-color: #93c5fd;
+}
+
+:root[data-palette][data-theme="dark"] :is(.chart-version-feedback.loading, .registry-version-feedback.loading) {
+  color: #bfdbfe;
+  background: rgb(37 99 235 / 13%);
+  border-color: rgb(96 165 250 / 38%);
+}
+
+:root[data-palette] .version-copy-button {
+  color: #2563eb !important;
+  background: #eff6ff !important;
+  border-color: #93c5fd !important;
+}
+
+:root[data-palette][data-theme="dark"] .version-copy-button {
+  color: #93c5fd !important;
+  background: rgb(37 99 235 / 14%) !important;
+  border-color: rgb(96 165 250 / 46%) !important;
+}
+
+:root[data-palette] .version-copy-button:hover:not(:disabled) {
+  color: #fff !important;
+  background: #2563eb !important;
+  border-color: #60a5fa !important;
+}
+
+:root[data-palette][data-theme="light"] :is(.registry-tags-toggle, .chart-tags-toggle.detail-button, .chart-version-action.detail-button) {
+  color: #0e7490 !important;
+  background: #ecfeff !important;
+  border-color: #67e8f9 !important;
+}
+
+:root[data-palette] .registry-catalog-empty {
+  color: var(--theme-muted);
+  background: var(--theme-panel-soft);
+  border-color: var(--theme-border);
+}
+
+:root[data-palette][data-theme="light"] :is(
+  .k8s-cluster-ledger-card span, .k8s-cluster-ledger-card em,
+  .k8s-cluster-identity p, .k8s-cluster-facts dt,
+  .k8s-cluster-card-foot em, .k8s-cluster-table small,
+  .k8s-cluster-endpoint small, .k8s-cluster-facts small,
+  .k8s-cluster-card-foot small, .k8s-secret-field > em,
+  .k8s-cluster-state
+) {
+  color: var(--theme-muted);
+}
+
+:root[data-palette] .k8s-cluster-state {
+  color: var(--theme-muted);
+  background: var(--theme-panel);
+  border-color: var(--theme-border);
+}
+
+/* Platform settings keeps its existing colored control treatment. */
+:root[data-palette] :is(.platform-settings-page, .platform-settings-dialog) button:not(
+  .primary,
+  .danger,
+  .danger-button,
+  .danger-inline,
+  .action-edit,
+  .edit-action,
+  .settings-edit-button,
+  [title="编辑"]
+) {
+  color: var(--theme-action-secondary-text) !important;
+  background: var(--theme-action-secondary-bg) !important;
+  border-color: var(--theme-action-secondary-border) !important;
+}
+
+:root[data-palette] :is(.platform-settings-page, .platform-settings-dialog) button:not(
+  .primary,
+  .danger,
+  .danger-button,
+  .danger-inline,
+  .action-edit,
+  .edit-action,
+  .settings-edit-button,
+  [title="编辑"]
+):hover:not(:disabled) {
+  color: var(--theme-action-secondary-text) !important;
+  background: var(--theme-action-secondary-hover) !important;
+  border-color: color-mix(in srgb, var(--theme-accent) 60%, var(--theme-border)) !important;
+  box-shadow: none !important;
+}
+
+:root[data-palette] .platform-settings-page .platform-settings-tabs button.active {
+  color: #fff !important;
+  background: var(--theme-accent) !important;
+  border-color: color-mix(in srgb, var(--theme-accent) 76%, white) !important;
+}
+
+:root[data-palette] :is(.platform-settings-page, .platform-settings-dialog) button:disabled {
+  cursor: not-allowed;
+  opacity: .68;
+}
+
+/* Keep the searchable SMS provider picker quiet inside the colored settings dialog. */
+:root[data-palette] .platform-settings-dialog .sms-provider-select .custom-select-trigger {
+  color: var(--theme-text) !important;
+  background: var(--theme-panel-soft) !important;
+  border-color: var(--theme-border-strong) !important;
+  box-shadow: none !important;
+}
+
+:root[data-palette] .platform-settings-dialog .sms-provider-select .custom-select-trigger:hover,
+:root[data-palette] .platform-settings-dialog .sms-provider-select.open .custom-select-trigger {
+  background: var(--theme-panel-soft) !important;
+  border-color: color-mix(in srgb, var(--theme-text) 28%, var(--theme-border-strong)) !important;
+}
+
+:root[data-palette] .platform-settings-dialog .sms-provider-select .custom-select-menu button {
+  color: var(--theme-text) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+:root[data-palette] .platform-settings-dialog .sms-provider-select .custom-select-menu button:is(:hover, .highlighted) {
+  color: var(--theme-text) !important;
+  background: color-mix(in srgb, var(--theme-text) 6%, var(--theme-panel)) !important;
+}
+
+:root[data-palette] .platform-settings-dialog .sms-provider-select .custom-select-menu button[aria-selected="true"] {
+  color: var(--theme-text) !important;
+  background: color-mix(in srgb, var(--theme-text) 9%, var(--theme-panel)) !important;
+}
+
+:root[data-palette] .platform-settings-dialog .sms-provider-select :is(.custom-select-trigger, .custom-select-menu button) svg {
+  color: var(--theme-muted) !important;
+}
+
+:root[data-palette] .platform-settings-dialog .sms-provider-select .custom-select-search input:focus {
+  border-color: color-mix(in srgb, var(--theme-text) 30%, var(--theme-border-strong));
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--theme-text) 8%, transparent);
+}
+
+/* Only business actions carry semantic colors outside platform settings. */
+:root[data-palette] :is(.action-refresh, button[title="刷新"], button[title="刷新报表"]) {
+  color: var(--theme-action-edit-text) !important;
+  background: var(--theme-action-edit-bg) !important;
+  border-color: var(--theme-action-edit-border) !important;
+}
+
+:root[data-palette] :is(.action-refresh, button[title="刷新"], button[title="刷新报表"]):hover:not(:disabled) {
+  color: #fff !important;
+  background: var(--theme-action-primary) !important;
+  border-color: var(--theme-action-primary-border) !important;
+}
+
+:root[data-palette] :is(.action-child, button[title="新增下级部门"]) {
+  color: var(--theme-action-child-text) !important;
+  background: var(--theme-action-child-bg) !important;
+  border-color: var(--theme-action-child-border) !important;
+}
+
+:root[data-palette] :is(.action-child, button[title="新增下级部门"]):hover:not(:disabled) {
+  color: #fff !important;
+  background: #7c3aed !important;
+  border-color: #a78bfa !important;
+}
+
+:root[data-palette] :is(.action-member, button[title="成员"]) {
+  color: var(--theme-action-member-text) !important;
+  background: var(--theme-action-member-bg) !important;
+  border-color: var(--theme-action-member-border) !important;
+}
+
+:root[data-palette] :is(.action-member, button[title="成员"]):hover:not(:disabled) {
+  color: #fff !important;
+  background: #0891b2 !important;
+  border-color: #22d3ee !important;
+}
+
+@media (max-width: 520px) {
+  .theme-option-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .theme-picker-popover {
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
+  }
+}
